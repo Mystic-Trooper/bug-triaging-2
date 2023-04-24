@@ -1,0 +1,204 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vis-network@latest/styles/vis-network.css" type="text/css" />
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vis-network@latest/dist/vis-network.min.js"> </script>
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+
+<style type="text/css">
+
+        #mynetwork {
+            width: 100%;
+            height: 750px;
+            background-color: #222222;
+            border: 1px solid lightgray;
+            position: relative;
+            float: left;
+        }
+
+        
+        #loadingBar {
+            position:absolute;
+            top:0px;
+            left:0px;
+            width: 100%;
+            height: 750px;
+            background-color:rgba(200,200,200,0.8);
+            -webkit-transition: all 0.5s ease;
+            -moz-transition: all 0.5s ease;
+            -ms-transition: all 0.5s ease;
+            -o-transition: all 0.5s ease;
+            transition: all 0.5s ease;
+            opacity:1;
+        }
+
+        #bar {
+            position:absolute;
+            top:0px;
+            left:0px;
+            width:20px;
+            height:20px;
+            margin:auto auto auto auto;
+            border-radius:11px;
+            border:2px solid rgba(30,30,30,0.05);
+            background: rgb(0, 173, 246); /* Old browsers */
+            box-shadow: 2px 0px 4px rgba(0,0,0,0.4);
+        }
+
+        #border {
+            position:absolute;
+            top:10px;
+            left:10px;
+            width:500px;
+            height:23px;
+            margin:auto auto auto auto;
+            box-shadow: 0px 0px 4px rgba(0,0,0,0.2);
+            border-radius:10px;
+        }
+
+        #text {
+            position:absolute;
+            top:8px;
+            left:530px;
+            width:30px;
+            height:50px;
+            margin:auto auto auto auto;
+            font-size:22px;
+            color: #000000;
+        }
+
+        div.outerBorder {
+            position:relative;
+            top:400px;
+            width:600px;
+            height:44px;
+            margin:auto auto auto auto;
+            border:8px solid rgba(0,0,0,0.1);
+            background: rgb(252,252,252); /* Old browsers */
+            background: -moz-linear-gradient(top,  rgba(252,252,252,1) 0%, rgba(237,237,237,1) 100%); /* FF3.6+ */
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(252,252,252,1)), color-stop(100%,rgba(237,237,237,1))); /* Chrome,Safari4+ */
+            background: -webkit-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* Chrome10+,Safari5.1+ */
+            background: -o-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* Opera 11.10+ */
+            background: -ms-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* IE10+ */
+            background: linear-gradient(to bottom,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* W3C */
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfcfc', endColorstr='#ededed',GradientType=0 ); /* IE6-9 */
+            border-radius:72px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+        }
+        
+
+        
+
+        
+</style>
+
+</head>
+
+<body>
+<div id = "mynetwork"></div>
+
+<div id="loadingBar">
+    <div class="outerBorder">
+        <div id="text">0%</div>
+        <div id="border">
+            <div id="bar"></div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+
+    // initialize global variables.
+    var edges;
+    var nodes;
+    var network; 
+    var container;
+    var options, data;
+
+    
+    // This method is responsible for drawing the graph, returns the drawn network
+    function drawGraph() {
+        var container = document.getElementById('mynetwork');
+        
+        
+
+        // parsing and collecting nodes and edges from the python
+        nodes = new vis.DataSet([{"color": 2, "font": {"color": "white"}, "id": "justdave@bugzilla.org", "label": "justdave@bugzilla.org", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "Bugzilla", "label": "Bugzilla", "shape": "dot"}, {"color": 2, "font": {"color": "white"}, "id": "bugzilla.mozilla.org", "label": "bugzilla.mozilla.org", "shape": "dot"}, {"color": 2, "font": {"color": "white"}, "id": "dylan@hardison.net", "label": "dylan@hardison.net", "shape": "dot"}, {"color": 2, "font": {"color": "white"}, "id": "dkl@mozilla.com", "label": "dkl@mozilla.com", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "ka7@la-evento.com", "label": "ka7@la-evento.com", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "tomica@gmail.com", "label": "tomica@gmail.com", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "dylan+test@hardison.net", "label": "dylan+test@hardison.net", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "LpSolit@gmail.com", "label": "LpSolit@gmail.com", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "ektap.098@gmail.com", "label": "ektap.098@gmail.com", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "sina@mashek.xyz", "label": "sina@mashek.xyz", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "mail@simon.green", "label": "mail@simon.green", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "emmanuel@seyman.fr", "label": "emmanuel@seyman.fr", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "usharma1998@gmail.com", "label": "usharma1998@gmail.com", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "altlist@gmail.com", "label": "altlist@gmail.com", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "mtyson@mtyson.id.au", "label": "mtyson@mtyson.id.au", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "christophe.jaillet@wanadoo.fr", "label": "christophe.jaillet@wanadoo.fr", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "mokhi64@gmail.com", "label": "mokhi64@gmail.com", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "pami.ketolainen@gmail.com", "label": "pami.ketolainen@gmail.com", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "alex@schuilenburg.org", "label": "alex@schuilenburg.org", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "bugzilla@colinjoy.net", "label": "bugzilla@colinjoy.net", "shape": "dot"}, {"color": 2, "font": {"color": "white"}, "id": "gerv@mozilla.org", "label": "gerv@mozilla.org", "shape": "dot"}, {"color": 2, "font": {"color": "white"}, "id": "glob@mozilla.com", "label": "glob@mozilla.com", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "a9016009@gmx.de", "label": "a9016009@gmx.de", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "selsky@columbia.edu", "label": "selsky@columbia.edu", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "klibby@mozilla.com", "label": "klibby@mozilla.com", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "wurblzap@gmail.com", "label": "wurblzap@gmail.com", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "damien.nozay@gmail.com", "label": "damien.nozay@gmail.com", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "koosha.khajeh@gmail.com", "label": "koosha.khajeh@gmail.com", "shape": "dot"}, {"color": 2, "font": {"color": "white"}, "id": "emorley@mozilla.com", "label": "emorley@mozilla.com", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "joshi.sunil@outlook.com", "label": "joshi.sunil@outlook.com", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "steve@rkbb.co.uk", "label": "steve@rkbb.co.uk", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "charlie@charliesomerville.com", "label": "charlie@charliesomerville.com", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "mcote@mozilla.bugs", "label": "mcote@mozilla.bugs", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "quanah@zimbra.com", "label": "quanah@zimbra.com", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "aliustek@gmail.com", "label": "aliustek@gmail.com", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "chtrom@gmail.com", "label": "chtrom@gmail.com", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "bugzilla-mozilla@vitters.nl", "label": "bugzilla-mozilla@vitters.nl", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "tschoening@am-soft.de", "label": "tschoening@am-soft.de", "shape": "dot"}, {"color": 2, "font": {"color": "white"}, "id": "reed@reedloden.com", "label": "reed@reedloden.com", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "Frank@Frank-Becker.de", "label": "Frank@Frank-Becker.de", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "fdonalisio@gmail.com", "label": "fdonalisio@gmail.com", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "michael.j.tosh@lmco.com", "label": "michael.j.tosh@lmco.com", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "rowebb@gmail.com", "label": "rowebb@gmail.com", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "mkanat@bugzilla.org", "label": "mkanat@bugzilla.org", "shape": "dot"}, {"color": 6, "font": {"color": "white"}, "id": "jochen.wiedmann@gmail.com", "label": "jochen.wiedmann@gmail.com", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "idl0r@gentoo.org", "label": "idl0r@gentoo.org", "shape": "dot"}, {"color": 2, "font": {"color": "white"}, "id": "timeless@bemail.org", "label": "timeless@bemail.org", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "eevee.mozilla@veekun.com", "label": "eevee.mozilla@veekun.com", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "guy.pyrzak@gmail.com", "label": "guy.pyrzak@gmail.com", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "timello@bugzilla.org", "label": "timello@bugzilla.org", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "bugzilla@chimpychompy.org", "label": "bugzilla@chimpychompy.org", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "gphemsley@gphemsley.org", "label": "gphemsley@gphemsley.org", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "michaelc@wush.net", "label": "michaelc@wush.net", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "bbaetz@gmail.com", "label": "bbaetz@gmail.com", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "gregaryh@gmail.com", "label": "gregaryh@gmail.com", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "wicked@sci.fi", "label": "wicked@sci.fi", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "uokrent@gmail.com", "label": "uokrent@gmail.com", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "shimono@bug-ja.org", "label": "shimono@bug-ja.org", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "nbezzala@yahoo.com", "label": "nbezzala@yahoo.com", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "vitaly.fedrushkov@gmail.com", "label": "vitaly.fedrushkov@gmail.com", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "robzilla2@siklos.ca", "label": "robzilla2@siklos.ca", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "Alex.Eiser@nasa.gov", "label": "Alex.Eiser@nasa.gov", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "robbat2@gentoo.org", "label": "robbat2@gentoo.org", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "mozilla+bmo@cso.me.uk", "label": "mozilla+bmo@cso.me.uk", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "romaia@async.com.br", "label": "romaia@async.com.br", "shape": "dot"}, {"color": 0, "font": {"color": "white"}, "id": "cedric.corazza@wanadoo.fr", "label": "cedric.corazza@wanadoo.fr", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "goobix@gmail.com", "label": "goobix@gmail.com", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "ishitva.goel@yahoo.co.in", "label": "ishitva.goel@yahoo.co.in", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "erik@purins.com", "label": "erik@purins.com", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "karl@kornel.us", "label": "karl@kornel.us", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "laoseth@gmail.com", "label": "laoseth@gmail.com", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "ddkilzer@webkit.org", "label": "ddkilzer@webkit.org", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "gijskruitbosch+bugs@gmail.com", "label": "gijskruitbosch+bugs@gmail.com", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "pjdemarco@gmail.com", "label": "pjdemarco@gmail.com", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "batosti@gmail.com", "label": "batosti@gmail.com", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "bugreport@peshkin.net", "label": "bugreport@peshkin.net", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "parkcra@gmail.com", "label": "parkcra@gmail.com", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "mozilla@matt.mchenryfamily.org", "label": "mozilla@matt.mchenryfamily.org", "shape": "dot"}, {"color": 2, "font": {"color": "white"}, "id": "myk@mykzilla.org", "label": "myk@mykzilla.org", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "bugspam.Callek@gmail.com", "label": "bugspam.Callek@gmail.com", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "ispiked@gmail.com", "label": "ispiked@gmail.com", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "bugzilla@mcsmurf.de", "label": "bugzilla@mcsmurf.de", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "zach@zachlipton.com", "label": "zach@zachlipton.com", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "kiko@async.com.br", "label": "kiko@async.com.br", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "Tomas.Kopal@altap.cz", "label": "Tomas.Kopal@altap.cz", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "edwardjsabol@iname.com", "label": "edwardjsabol@iname.com", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "annevk@annevk.nl", "label": "annevk@annevk.nl", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "john@redux.org.uk", "label": "john@redux.org.uk", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "nb+bz@ravenbrook.com", "label": "nb+bz@ravenbrook.com", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "erh+mozilla@nimenees.com", "label": "erh+mozilla@nimenees.com", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "jpyeron@pdinc.us", "label": "jpyeron@pdinc.us", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "burnus@gmx.de", "label": "burnus@gmx.de", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "bill+mozilla-bugzilla@bfccomputing.com", "label": "bill+mozilla-bugzilla@bfccomputing.com", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "jeff.hedlund@matrixsi.com", "label": "jeff.hedlund@matrixsi.com", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "mozpreed@sigkill.com", "label": "mozpreed@sigkill.com", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "peterhenderson@byu.net", "label": "peterhenderson@byu.net", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "matty_is_a_geek@fastmail.fm", "label": "matty_is_a_geek@fastmail.fm", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "jacob@steenhagen.us", "label": "jacob@steenhagen.us", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "jayvdb@gmail.com", "label": "jayvdb@gmail.com", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "nine@detonation.org", "label": "nine@detonation.org", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "bugzilla-mozilla@banoffee.co.uk", "label": "bugzilla-mozilla@banoffee.co.uk", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "dmosedale@mozilla.com", "label": "dmosedale@mozilla.com", "shape": "dot"}, {"color": 1, "font": {"color": "white"}, "id": "terry@mozilla.org", "label": "terry@mozilla.org", "shape": "dot"}, {"color": 2, "font": {"color": "white"}, "id": "ian@hixie.ch", "label": "ian@hixie.ch", "shape": "dot"}, {"color": 2, "font": {"color": "white"}, "id": "dveditz@mozilla.com", "label": "dveditz@mozilla.com", "shape": "dot"}, {"color": 3, "font": {"color": "white"}, "id": "mcastelluccio@mozilla.com", "label": "mcastelluccio@mozilla.com", "shape": "dot"}, {"color": 4, "font": {"color": "white"}, "id": "smujahid@mozilla.com", "label": "smujahid@mozilla.com", "shape": "dot"}, {"color": 5, "font": {"color": "white"}, "id": "ryanvm@gmail.com", "label": "ryanvm@gmail.com", "shape": "dot"}, {"color": 7, "font": {"color": "white"}, "id": "kkleemola@mozilla.com", "label": "kkleemola@mozilla.com", "shape": "dot"}, {"color": 2, "font": {"color": "white"}, "id": "zeid@mozilla.com", "label": "zeid@mozilla.com", "shape": "dot"}, {"color": 8, "font": {"color": "white"}, "id": "mhentges@mozilla.com", "label": "mhentges@mozilla.com", "shape": "dot"}, {"color": 9, "font": {"color": "white"}, "id": "philipp@bugzilla.kewis.ch", "label": "philipp@bugzilla.kewis.ch", "shape": "dot"}, {"color": 2, "font": {"color": "white"}, "id": "ech@emmah.net", "label": "ech@emmah.net", "shape": "dot"}, {"color": 2, "font": {"color": "white"}, "id": "jcristau@mozilla.com", "label": "jcristau@mozilla.com", "shape": "dot"}, {"color": 2, "font": {"color": "white"}, "id": "kmoir@mozilla.com", "label": "kmoir@mozilla.com", "shape": "dot"}, {"color": 2, "font": {"color": "white"}, "id": "kohei.yoshino@gmail.com", "label": "kohei.yoshino@gmail.com", "shape": "dot"}, {"color": 2, "font": {"color": "white"}, "id": "lizhenry@gmail.com", "label": "lizhenry@gmail.com", "shape": "dot"}, {"color": 2, "font": {"color": "white"}, "id": "madueme.israel@gmail.com", "label": "madueme.israel@gmail.com", "shape": "dot"}, {"color": 2, "font": {"color": "white"}, "id": "jvehent@mozilla.com", "label": "jvehent@mozilla.com", "shape": "dot"}, {"color": 2, "font": {"color": "white"}, "id": "jlin@mozilla.com", "label": "jlin@mozilla.com", "shape": "dot"}, {"color": 2, "font": {"color": "white"}, "id": "kairo@kairo.at", "label": "kairo@kairo.at", "shape": "dot"}, {"color": 2, "font": {"color": "white"}, "id": "mkmelin+mozilla@iki.fi", "label": "mkmelin+mozilla@iki.fi", "shape": "dot"}, {"color": 2, "font": {"color": "white"}, "id": "htusiime@mozilla.com", "label": "htusiime@mozilla.com", "shape": "dot"}, {"color": 2, "font": {"color": "white"}, "id": "cshields@mozilla.com", "label": "cshields@mozilla.com", "shape": "dot"}, {"color": 2, "font": {"color": "white"}, "id": "sebastinssanty@gmail.com", "label": "sebastinssanty@gmail.com", "shape": "dot"}, {"color": 2, "font": {"color": "white"}, "id": "ludovic@hirlimann.net", "label": "ludovic@hirlimann.net", "shape": "dot"}, {"color": 2, "font": {"color": "white"}, "id": "cooldipanks14@gmail.com", "label": "cooldipanks14@gmail.com", "shape": "dot"}, {"color": 2, "font": {"color": "white"}, "id": "chrismore.bugzilla@gmail.com", "label": "chrismore.bugzilla@gmail.com", "shape": "dot"}, {"color": 2, "font": {"color": "white"}, "id": "jbryner@mozilla.com", "label": "jbryner@mozilla.com", "shape": "dot"}, {"color": 2, "font": {"color": "white"}, "id": "sarentz@mozilla.com", "label": "sarentz@mozilla.com", "shape": "dot"}, {"color": 2, "font": {"color": "white"}, "id": "sledru@mozilla.com", "label": "sledru@mozilla.com", "shape": "dot"}, {"color": 2, "font": {"color": "white"}, "id": "angela@mozillafoundation.org", "label": "angela@mozillafoundation.org", "shape": "dot"}, {"color": 2, "font": {"color": "white"}, "id": "lypulong@mozilla.com", "label": "lypulong@mozilla.com", "shape": "dot"}, {"color": 2, "font": {"color": "white"}, "id": "nli@mozilla.com", "label": "nli@mozilla.com", "shape": "dot"}, {"color": 2, "font": {"color": "white"}, "id": "kevin+bugzilla@grandon.org", "label": "kevin+bugzilla@grandon.org", "shape": "dot"}, {"color": 2, "font": {"color": "white"}, "id": "jshen@mozilla.com", "label": "jshen@mozilla.com", "shape": "dot"}, {"color": 2, "font": {"color": "white"}, "id": "ashish@mozilla.com", "label": "ashish@mozilla.com", "shape": "dot"}, {"color": 2, "font": {"color": "white"}, "id": "coopcoopbware@gmail.com", "label": "coopcoopbware@gmail.com", "shape": "dot"}, {"color": 2, "font": {"color": "white"}, "id": "mhoye@mozilla.com", "label": "mhoye@mozilla.com", "shape": "dot"}, {"color": 2, "font": {"color": "white"}, "id": "gavin.sharp@gmail.com", "label": "gavin.sharp@gmail.com", "shape": "dot"}, {"color": 2, "font": {"color": "white"}, "id": "john+bugzilla@oduinn.com", "label": "john+bugzilla@oduinn.com", "shape": "dot"}, {"color": 2, "font": {"color": "white"}, "id": "scabral@mozilla.com", "label": "scabral@mozilla.com", "shape": "dot"}, {"color": 2, "font": {"color": "white"}, "id": "akeybl@mozilla.com", "label": "akeybl@mozilla.com", "shape": "dot"}, {"color": 2, "font": {"color": "white"}, "id": "mconnor@mozilla.com", "label": "mconnor@mozilla.com", "shape": "dot"}, {"color": 2, "font": {"color": "white"}, "id": "bugzilla@johnath.com", "label": "bugzilla@johnath.com", "shape": "dot"}, {"color": 2, "font": {"color": "white"}, "id": "pierros@mozilla.com", "label": "pierros@mozilla.com", "shape": "dot"}, {"color": 2, "font": {"color": "white"}, "id": "cbook@mozilla.com", "label": "cbook@mozilla.com", "shape": "dot"}, {"color": 2, "font": {"color": "white"}, "id": "mozillamarcia.knous@gmail.com", "label": "mozillamarcia.knous@gmail.com", "shape": "dot"}, {"color": 2, "font": {"color": "white"}, "id": "mbeltzner@gmail.com", "label": "mbeltzner@gmail.com", "shape": "dot"}, {"color": 2, "font": {"color": "white"}, "id": "stephen.donner@gmail.com", "label": "stephen.donner@gmail.com", "shape": "dot"}, {"color": 2, "font": {"color": "white"}, "id": "asa@mozilla.com", "label": "asa@mozilla.com", "shape": "dot"}]);
+        edges = new vis.DataSet([{"from": "justdave@bugzilla.org", "to": "Bugzilla"}, {"from": "justdave@bugzilla.org", "to": "bugzilla.mozilla.org"}, {"from": "Bugzilla", "to": "dylan@hardison.net"}, {"from": "Bugzilla", "to": "dkl@mozilla.com"}, {"from": "Bugzilla", "to": "ka7@la-evento.com"}, {"from": "Bugzilla", "to": "tomica@gmail.com"}, {"from": "Bugzilla", "to": "dylan+test@hardison.net"}, {"from": "Bugzilla", "to": "LpSolit@gmail.com"}, {"from": "Bugzilla", "to": "ektap.098@gmail.com"}, {"from": "Bugzilla", "to": "sina@mashek.xyz"}, {"from": "Bugzilla", "to": "mail@simon.green"}, {"from": "Bugzilla", "to": "emmanuel@seyman.fr"}, {"from": "Bugzilla", "to": "usharma1998@gmail.com"}, {"from": "Bugzilla", "to": "altlist@gmail.com"}, {"from": "Bugzilla", "to": "mtyson@mtyson.id.au"}, {"from": "Bugzilla", "to": "christophe.jaillet@wanadoo.fr"}, {"from": "Bugzilla", "to": "mokhi64@gmail.com"}, {"from": "Bugzilla", "to": "pami.ketolainen@gmail.com"}, {"from": "Bugzilla", "to": "alex@schuilenburg.org"}, {"from": "Bugzilla", "to": "bugzilla@colinjoy.net"}, {"from": "Bugzilla", "to": "gerv@mozilla.org"}, {"from": "Bugzilla", "to": "glob@mozilla.com"}, {"from": "Bugzilla", "to": "a9016009@gmx.de"}, {"from": "Bugzilla", "to": "selsky@columbia.edu"}, {"from": "Bugzilla", "to": "klibby@mozilla.com"}, {"from": "Bugzilla", "to": "wurblzap@gmail.com"}, {"from": "Bugzilla", "to": "damien.nozay@gmail.com"}, {"from": "Bugzilla", "to": "koosha.khajeh@gmail.com"}, {"from": "Bugzilla", "to": "emorley@mozilla.com"}, {"from": "Bugzilla", "to": "joshi.sunil@outlook.com"}, {"from": "Bugzilla", "to": "steve@rkbb.co.uk"}, {"from": "Bugzilla", "to": "charlie@charliesomerville.com"}, {"from": "Bugzilla", "to": "mcote@mozilla.bugs"}, {"from": "Bugzilla", "to": "quanah@zimbra.com"}, {"from": "Bugzilla", "to": "aliustek@gmail.com"}, {"from": "Bugzilla", "to": "chtrom@gmail.com"}, {"from": "Bugzilla", "to": "bugzilla-mozilla@vitters.nl"}, {"from": "Bugzilla", "to": "tschoening@am-soft.de"}, {"from": "Bugzilla", "to": "reed@reedloden.com"}, {"from": "Bugzilla", "to": "Frank@Frank-Becker.de"}, {"from": "Bugzilla", "to": "fdonalisio@gmail.com"}, {"from": "Bugzilla", "to": "michael.j.tosh@lmco.com"}, {"from": "Bugzilla", "to": "rowebb@gmail.com"}, {"from": "Bugzilla", "to": "mkanat@bugzilla.org"}, {"from": "Bugzilla", "to": "jochen.wiedmann@gmail.com"}, {"from": "Bugzilla", "to": "idl0r@gentoo.org"}, {"from": "Bugzilla", "to": "timeless@bemail.org"}, {"from": "Bugzilla", "to": "eevee.mozilla@veekun.com"}, {"from": "Bugzilla", "to": "guy.pyrzak@gmail.com"}, {"from": "Bugzilla", "to": "timello@bugzilla.org"}, {"from": "Bugzilla", "to": "bugzilla@chimpychompy.org"}, {"from": "Bugzilla", "to": "gphemsley@gphemsley.org"}, {"from": "Bugzilla", "to": "michaelc@wush.net"}, {"from": "Bugzilla", "to": "bbaetz@gmail.com"}, {"from": "Bugzilla", "to": "gregaryh@gmail.com"}, {"from": "Bugzilla", "to": "wicked@sci.fi"}, {"from": "Bugzilla", "to": "uokrent@gmail.com"}, {"from": "Bugzilla", "to": "shimono@bug-ja.org"}, {"from": "Bugzilla", "to": "nbezzala@yahoo.com"}, {"from": "Bugzilla", "to": "vitaly.fedrushkov@gmail.com"}, {"from": "Bugzilla", "to": "robzilla2@siklos.ca"}, {"from": "Bugzilla", "to": "Alex.Eiser@nasa.gov"}, {"from": "Bugzilla", "to": "robbat2@gentoo.org"}, {"from": "Bugzilla", "to": "mozilla+bmo@cso.me.uk"}, {"from": "Bugzilla", "to": "romaia@async.com.br"}, {"from": "Bugzilla", "to": "cedric.corazza@wanadoo.fr"}, {"from": "Bugzilla", "to": "goobix@gmail.com"}, {"from": "Bugzilla", "to": "ishitva.goel@yahoo.co.in"}, {"from": "Bugzilla", "to": "erik@purins.com"}, {"from": "Bugzilla", "to": "karl@kornel.us"}, {"from": "Bugzilla", "to": "laoseth@gmail.com"}, {"from": "Bugzilla", "to": "ddkilzer@webkit.org"}, {"from": "Bugzilla", "to": "gijskruitbosch+bugs@gmail.com"}, {"from": "Bugzilla", "to": "pjdemarco@gmail.com"}, {"from": "Bugzilla", "to": "batosti@gmail.com"}, {"from": "Bugzilla", "to": "bugreport@peshkin.net"}, {"from": "Bugzilla", "to": "parkcra@gmail.com"}, {"from": "Bugzilla", "to": "mozilla@matt.mchenryfamily.org"}, {"from": "Bugzilla", "to": "myk@mykzilla.org"}, {"from": "Bugzilla", "to": "bugspam.Callek@gmail.com"}, {"from": "Bugzilla", "to": "ispiked@gmail.com"}, {"from": "Bugzilla", "to": "bugzilla@mcsmurf.de"}, {"from": "Bugzilla", "to": "zach@zachlipton.com"}, {"from": "Bugzilla", "to": "kiko@async.com.br"}, {"from": "Bugzilla", "to": "Tomas.Kopal@altap.cz"}, {"from": "Bugzilla", "to": "edwardjsabol@iname.com"}, {"from": "Bugzilla", "to": "annevk@annevk.nl"}, {"from": "Bugzilla", "to": "john@redux.org.uk"}, {"from": "Bugzilla", "to": "nb+bz@ravenbrook.com"}, {"from": "Bugzilla", "to": "erh+mozilla@nimenees.com"}, {"from": "Bugzilla", "to": "jpyeron@pdinc.us"}, {"from": "Bugzilla", "to": "burnus@gmx.de"}, {"from": "Bugzilla", "to": "bill+mozilla-bugzilla@bfccomputing.com"}, {"from": "Bugzilla", "to": "jeff.hedlund@matrixsi.com"}, {"from": "Bugzilla", "to": "mozpreed@sigkill.com"}, {"from": "Bugzilla", "to": "peterhenderson@byu.net"}, {"from": "Bugzilla", "to": "matty_is_a_geek@fastmail.fm"}, {"from": "Bugzilla", "to": "jacob@steenhagen.us"}, {"from": "Bugzilla", "to": "jayvdb@gmail.com"}, {"from": "Bugzilla", "to": "nine@detonation.org"}, {"from": "Bugzilla", "to": "bugzilla-mozilla@banoffee.co.uk"}, {"from": "Bugzilla", "to": "dmosedale@mozilla.com"}, {"from": "Bugzilla", "to": "terry@mozilla.org"}, {"from": "bugzilla.mozilla.org", "to": "dylan@hardison.net"}, {"from": "bugzilla.mozilla.org", "to": "dkl@mozilla.com"}, {"from": "bugzilla.mozilla.org", "to": "gerv@mozilla.org"}, {"from": "bugzilla.mozilla.org", "to": "glob@mozilla.com"}, {"from": "bugzilla.mozilla.org", "to": "emorley@mozilla.com"}, {"from": "bugzilla.mozilla.org", "to": "mcote@mozilla.bugs"}, {"from": "bugzilla.mozilla.org", "to": "reed@reedloden.com"}, {"from": "bugzilla.mozilla.org", "to": "timeless@bemail.org"}, {"from": "bugzilla.mozilla.org", "to": "myk@mykzilla.org"}, {"from": "bugzilla.mozilla.org", "to": "ian@hixie.ch"}, {"from": "bugzilla.mozilla.org", "to": "dveditz@mozilla.com"}, {"from": "bugzilla.mozilla.org", "to": "mcastelluccio@mozilla.com"}, {"from": "bugzilla.mozilla.org", "to": "smujahid@mozilla.com"}, {"from": "bugzilla.mozilla.org", "to": "ryanvm@gmail.com"}, {"from": "bugzilla.mozilla.org", "to": "kkleemola@mozilla.com"}, {"from": "bugzilla.mozilla.org", "to": "zeid@mozilla.com"}, {"from": "bugzilla.mozilla.org", "to": "mhentges@mozilla.com"}, {"from": "bugzilla.mozilla.org", "to": "philipp@bugzilla.kewis.ch"}, {"from": "bugzilla.mozilla.org", "to": "ech@emmah.net"}, {"from": "bugzilla.mozilla.org", "to": "jcristau@mozilla.com"}, {"from": "bugzilla.mozilla.org", "to": "kmoir@mozilla.com"}, {"from": "bugzilla.mozilla.org", "to": "kohei.yoshino@gmail.com"}, {"from": "bugzilla.mozilla.org", "to": "lizhenry@gmail.com"}, {"from": "bugzilla.mozilla.org", "to": "madueme.israel@gmail.com"}, {"from": "bugzilla.mozilla.org", "to": "jvehent@mozilla.com"}, {"from": "bugzilla.mozilla.org", "to": "jlin@mozilla.com"}, {"from": "bugzilla.mozilla.org", "to": "kairo@kairo.at"}, {"from": "bugzilla.mozilla.org", "to": "mkmelin+mozilla@iki.fi"}, {"from": "bugzilla.mozilla.org", "to": "htusiime@mozilla.com"}, {"from": "bugzilla.mozilla.org", "to": "cshields@mozilla.com"}, {"from": "bugzilla.mozilla.org", "to": "sebastinssanty@gmail.com"}, {"from": "bugzilla.mozilla.org", "to": "ludovic@hirlimann.net"}, {"from": "bugzilla.mozilla.org", "to": "cooldipanks14@gmail.com"}, {"from": "bugzilla.mozilla.org", "to": "chrismore.bugzilla@gmail.com"}, {"from": "bugzilla.mozilla.org", "to": "jbryner@mozilla.com"}, {"from": "bugzilla.mozilla.org", "to": "sarentz@mozilla.com"}, {"from": "bugzilla.mozilla.org", "to": "sledru@mozilla.com"}, {"from": "bugzilla.mozilla.org", "to": "angela@mozillafoundation.org"}, {"from": "bugzilla.mozilla.org", "to": "lypulong@mozilla.com"}, {"from": "bugzilla.mozilla.org", "to": "nli@mozilla.com"}, {"from": "bugzilla.mozilla.org", "to": "kevin+bugzilla@grandon.org"}, {"from": "bugzilla.mozilla.org", "to": "jshen@mozilla.com"}, {"from": "bugzilla.mozilla.org", "to": "ashish@mozilla.com"}, {"from": "bugzilla.mozilla.org", "to": "coopcoopbware@gmail.com"}, {"from": "bugzilla.mozilla.org", "to": "mhoye@mozilla.com"}, {"from": "bugzilla.mozilla.org", "to": "gavin.sharp@gmail.com"}, {"from": "bugzilla.mozilla.org", "to": "john+bugzilla@oduinn.com"}, {"from": "bugzilla.mozilla.org", "to": "scabral@mozilla.com"}, {"from": "bugzilla.mozilla.org", "to": "akeybl@mozilla.com"}, {"from": "bugzilla.mozilla.org", "to": "mconnor@mozilla.com"}, {"from": "bugzilla.mozilla.org", "to": "bugzilla@johnath.com"}, {"from": "bugzilla.mozilla.org", "to": "pierros@mozilla.com"}, {"from": "bugzilla.mozilla.org", "to": "cbook@mozilla.com"}, {"from": "bugzilla.mozilla.org", "to": "mozillamarcia.knous@gmail.com"}, {"from": "bugzilla.mozilla.org", "to": "mbeltzner@gmail.com"}, {"from": "bugzilla.mozilla.org", "to": "stephen.donner@gmail.com"}, {"from": "bugzilla.mozilla.org", "to": "asa@mozilla.com"}]);
+
+        // adding nodes and edges to the graph
+        data = {nodes: nodes, edges: edges};
+
+        var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+        
+        
+
+        
+
+        network = new vis.Network(container, data, options);
+	 
+        
+
+
+        
+        network.on("stabilizationProgress", function(params) {
+      		document.getElementById('loadingBar').removeAttribute("style");
+	        var maxWidth = 496;
+	        var minWidth = 20;
+	        var widthFactor = params.iterations/params.total;
+	        var width = Math.max(minWidth,maxWidth * widthFactor);
+
+	        document.getElementById('bar').style.width = width + 'px';
+	        document.getElementById('text').innerHTML = Math.round(widthFactor*100) + '%';
+	    });
+	    network.once("stabilizationIterationsDone", function() {
+	        document.getElementById('text').innerHTML = '100%';
+	        document.getElementById('bar').style.width = '496px';
+	        document.getElementById('loadingBar').style.opacity = 0;
+	        // really clean the dom element
+	        setTimeout(function () {document.getElementById('loadingBar').style.display = 'none';}, 500);
+	    });
+        
+
+        return network;
+
+    }
+
+    drawGraph();
+
+</script>
+</body>
+</html>
