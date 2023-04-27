@@ -1,0 +1,263 @@
+Assignee,Component,credibility_score
+kohei.yoshino@gmail.com,Bug Creation/Editing,0.23226741141706023
+dkl@mozilla.com,Bug Creation/Editing,0.044326054889749424
+glob@mozilla.com,Bug Creation/Editing,0.030487811077255532
+smujahid@mozilla.com,Bug Creation/Editing,0.45497431545891637
+philipp@bugzilla.kewis.ch,Bug Creation/Editing,0.30301204819277106
+ech@emmah.net,Bug Creation/Editing,0.020900918648777547
+dylan@hardison.net,Bug Creation/Editing,0.026325030172296975
+sebastinssanty@gmail.com,Bug Creation/Editing,0.30123852058680034
+gerv@mozilla.org,Bugzilla-General,0.2798974161107239
+dylan@hardison.net,Bugzilla-General,0.04859577253037557
+dkl@mozilla.com,Bugzilla-General,0.019943449084994607
+justdave@bugzilla.org,Bugzilla-General,0.25174872357654354
+ka7@la-evento.com,Bugzilla-General,0.3009036144578313
+tomica@gmail.com,Bugzilla-General,0.3060240963855422
+dylan+test@hardison.net,Bugzilla-General,0.3790692567740845
+ektap.098@gmail.com,Bugzilla-General,0.30210843373493973
+sina@mashek.xyz,Bugzilla-General,0.3
+emmanuel@seyman.fr,Bugzilla-General,0.3025294149789471
+usharma1998@gmail.com,Bugzilla-General,0.3478917611450457
+LpSolit@gmail.com,Bugzilla-General,0.22902510775315285
+altlist@gmail.com,Bugzilla-General,0.18585401284164801
+bugzilla@colinjoy.net,Bugzilla-General,0.3048192771084337
+glob@mozilla.com,Bugzilla-General,0.05210943267927584
+a9016009@gmx.de,Bugzilla-General,0.3147590361445783
+selsky@columbia.edu,Bugzilla-General,0.41912012662488374
+klibby@mozilla.com,Bugzilla-General,0.3003012048192771
+wurblzap@gmail.com,Bugzilla-General,0.1650871107844486
+mail@simon.green,Bugzilla-General,0.3489609010808304
+pami.ketolainen@gmail.com,Bugzilla-General,0.1503012048192771
+mtyson@mtyson.id.au,Bugzilla-General,0.2075301204819277
+koosha.khajeh@gmail.com,Bugzilla-General,0.47153695407979124
+emorley@mozilla.com,Bugzilla-General,0.07936746987951807
+joshi.sunil@outlook.com,Bugzilla-General,0.592399264534746
+charlie@charliesomerville.com,Bugzilla-General,0.3240963855421687
+mcote@mozilla.bugs,Bugzilla-General,0.1921686747176385
+aliustek@gmail.com,Bugzilla-General,0.20843373493975903
+bugzilla-mozilla@vitters.nl,Bugzilla-General,0.2530880059205385
+Frank@Frank-Becker.de,Bugzilla-General,0.3438998572777025
+reed@reedloden.com,Bugzilla-General,0.0768495714502488
+rowebb@gmail.com,Bugzilla-General,0.3009036144578313
+mkanat@bugzilla.org,Bugzilla-General,0.32164384834774973
+timello@bugzilla.org,Bugzilla-General,0.12419678714859433
+gphemsley@gphemsley.org,Bugzilla-General,0.3006024096385542
+michaelc@wush.net,Bugzilla-General,0.4964335935446115
+bbaetz@gmail.com,Bugzilla-General,0.2867040576097494
+gregaryh@gmail.com,Bugzilla-General,0.21618126642020102
+guy.pyrzak@gmail.com,Bugzilla-General,0.24956078025061731
+wicked@sci.fi,Bugzilla-General,0.3477158634538185
+vitaly.fedrushkov@gmail.com,Bugzilla-General,0.325
+nbezzala@yahoo.com,Bugzilla-General,0.17271084337349396
+robzilla2@siklos.ca,Bugzilla-General,0.22673192771084338
+Alex.Eiser@nasa.gov,Bugzilla-General,0.2614457831325301
+cedric.corazza@wanadoo.fr,Bugzilla-General,0.30150602409638555
+bugzilla@chimpychompy.org,Bugzilla-General,0.12692693852332407
+timeless@bemail.org,Bugzilla-General,0.053064966382496685
+goobix@gmail.com,Bugzilla-General,0.20847138554216865
+mozilla+bmo@cso.me.uk,Bugzilla-General,0.17136044176706827
+ddkilzer@webkit.org,Bugzilla-General,0.29143619978937324
+gijskruitbosch+bugs@gmail.com,Bugzilla-General,0.30150602409638555
+batosti@gmail.com,Bugzilla-General,0.19852744310575635
+bugreport@peshkin.net,Bugzilla-General,0.15309195967543643
+karl@kornel.us,Bugzilla-General,0.26067125645438893
+bugspam.Callek@gmail.com,Bugzilla-General,0.8167610399450164
+zach@zachlipton.com,Bugzilla-General,0.30582329317269075
+kiko@async.com.br,Bugzilla-General,0.22676250456370936
+Tomas.Kopal@altap.cz,Bugzilla-General,0.33578753516740756
+myk@mykzilla.org,Bugzilla-General,0.1700179288582903
+edwardjsabol@iname.com,Bugzilla-General,0.4536144592422297
+annevk@annevk.nl,Bugzilla-General,0.3369477911646586
+john@redux.org.uk,Bugzilla-General,0.30301204819277106
+erh+mozilla@nimenees.com,Bugzilla-General,0.3496987951807229
+burnus@gmx.de,Bugzilla-General,0.22389845094664368
+alex@schuilenburg.org,Bugzilla-General,0.25592369477956295
+bill+mozilla-bugzilla@bfccomputing.com,Bugzilla-General,0.4159638605806794
+shimono@bug-ja.org,Bugzilla-General,0.32297547143617905
+jeff.hedlund@matrixsi.com,Bugzilla-General,0.30090373283594507
+mozpreed@sigkill.com,Bugzilla-General,0.2710843373493976
+pjdemarco@gmail.com,Bugzilla-General,0.4178255362809062
+peterhenderson@byu.net,Bugzilla-General,0.38493975903823957
+jacob@steenhagen.us,Bugzilla-General,0.3258820998280577
+jayvdb@gmail.com,Bugzilla-General,0.10707831325301204
+nine@detonation.org,Bugzilla-General,0.39548192773090163
+matty_is_a_geek@fastmail.fm,Bugzilla-General,0.14312248995983934
+bugzilla-mozilla@banoffee.co.uk,Bugzilla-General,0.36897590361445887
+terry@mozilla.org,Bugzilla-General,2.51208564550086
+dmosedale@mozilla.com,Bugzilla-General,0.3022590361445783
+asa@mozilla.com,Administration,0.3156163113994439
+dkl@mozilla.com,Administration,0.28223816533743123
+glob@mozilla.com,Administration,0.2831458446595718
+dveditz@mozilla.com,Administration,0.3435151264466623
+mcastelluccio@mozilla.com,Administration,0.3033132530123803
+ryanvm@gmail.com,Administration,0.30210843373493973
+kkleemola@mozilla.com,Administration,0.3039156626506024
+zeid@mozilla.com,Administration,0.3007028112449799
+mhentges@mozilla.com,Administration,0.3012048192771084
+ech@emmah.net,Administration,0.30804377579163467
+jcristau@mozilla.com,Administration,0.3
+kmoir@mozilla.com,Administration,0.34439135134705445
+lizhenry@gmail.com,Administration,0.32305585980591345
+madueme.israel@gmail.com,Administration,0.253184165232358
+jvehent@mozilla.com,Administration,0.3012048192771084
+jlin@mozilla.com,Administration,0.30150602409638555
+dylan@hardison.net,Administration,0.2634429341024288
+kairo@kairo.at,Administration,0.3
+mkmelin+mozilla@iki.fi,Administration,0.3
+kohei.yoshino@gmail.com,Administration,0.07269211771840865
+htusiime@mozilla.com,Administration,0.3024096385542169
+cshields@mozilla.com,Administration,0.3008032128514056
+mcote@mozilla.bugs,Administration,0.19216867469879517
+ludovic@hirlimann.net,Administration,0.3
+cooldipanks14@gmail.com,Administration,0.3207831325301465
+emorley@mozilla.com,Administration,0.22936746987951806
+chrismore.bugzilla@gmail.com,Administration,0.3006024096385542
+jbryner@mozilla.com,Administration,0.3052710843373494
+sarentz@mozilla.com,Administration,0.3009036144578313
+LpSolit@gmail.com,Administration,0.2035906126027479
+sledru@mozilla.com,Administration,0.3003012048192771
+mail@simon.green,Administration,0.42868780158240954
+angela@mozillafoundation.org,Administration,0.3009036144578313
+lypulong@mozilla.com,Administration,0.3003012048192771
+mtyson@mtyson.id.au,Administration,0.1075301204819277
+christophe.jaillet@wanadoo.fr,Administration,0.41013713507859484
+pami.ketolainen@gmail.com,Administration,0.1503012048192771
+alex@schuilenburg.org,Administration,0.15592369477911647
+gerv@mozilla.org,Administration,0.13382025283151058
+nli@mozilla.com,Administration,0.3
+kevin+bugzilla@grandon.org,Administration,0.3
+jshen@mozilla.com,Administration,0.30271084337349397
+altlist@gmail.com,Administration,0.15857886089813802
+reed@reedloden.com,Administration,0.30089668224104704
+selsky@columbia.edu,Administration,0.49594879370899764
+wurblzap@gmail.com,Administration,0.22602375421369378
+koosha.khajeh@gmail.com,Administration,0.3107196460590289
+ashish@mozilla.com,Administration,0.3219879518072289
+steve@rkbb.co.uk,Administration,0.36596403829645446
+coopcoopbware@gmail.com,Administration,0.3
+chtrom@gmail.com,Administration,0.47285584361106725
+joshi.sunil@outlook.com,Administration,0.8296081769036877
+mhoye@mozilla.com,Administration,0.41640457892494875
+justdave@bugzilla.org,Administration,0.14673091862016271
+gavin.sharp@gmail.com,Administration,0.3016064257028112
+john+bugzilla@oduinn.com,Administration,0.3006024096385542
+scabral@mozilla.com,Administration,0.3289156626506024
+akeybl@mozilla.com,Administration,0.3003012048192771
+Frank@Frank-Becker.de,Administration,0.17717536813922358
+mconnor@mozilla.com,Administration,0.3104919678714859
+bugzilla@johnath.com,Administration,0.3009036144578313
+fdonalisio@gmail.com,Administration,0.3033132530120482
+aliustek@gmail.com,Administration,0.10843373493975902
+bugzilla-mozilla@vitters.nl,Administration,0.20091546089499282
+pierros@mozilla.com,Administration,0.3
+cbook@mozilla.com,Administration,0.3003012048192771
+michael.j.tosh@lmco.com,Administration,0.3072289156626506
+mozillamarcia.knous@gmail.com,Administration,0.32815439841558014
+jochen.wiedmann@gmail.com,Administration,0.30210843373493973
+timeless@bemail.org,Administration,0.3231584243264219
+idl0r@gentoo.org,Administration,0.33584337349397597
+timello@bugzilla.org,Administration,0.29086346581957523
+mbeltzner@gmail.com,Administration,0.3
+mkanat@bugzilla.org,Administration,0.11066461982711749
+bugzilla@chimpychompy.org,Administration,0.3144269412130753
+stephen.donner@gmail.com,Administration,0.3
+gregaryh@gmail.com,Administration,0.20189555213334578
+bbaetz@gmail.com,Administration,0.05911785071320114
+shimono@bug-ja.org,Administration,0.29909638554216866
+nbezzala@yahoo.com,Administration,0.29276777503783724
+robbat2@gentoo.org,Administration,0.3265060240963855
+myk@mykzilla.org,Administration,0.07287507305244295
+mozilla+bmo@cso.me.uk,Administration,0.10469377510040159
+romaia@async.com.br,Administration,0.3
+emmanuel@seyman.fr,Administration,0.15233433734939758
+Alex.Eiser@nasa.gov,Administration,0.16145818579810065
+karl@kornel.us,Administration,0.3036194054119147
+goobix@gmail.com,Administration,0.24597138577207361
+pjdemarco@gmail.com,Administration,0.5657123054003924
+mozilla@matt.mchenryfamily.org,Administration,0.3003012048192771
+batosti@gmail.com,Administration,0.16519410977242302
+bugreport@peshkin.net,Administration,0.19594910253257927
+robzilla2@siklos.ca,Administration,0.15173192771084337
+bugzilla@mcsmurf.de,Administration,0.3009036144578313
+wicked@sci.fi,Administration,0.12271586345381526
+Tomas.Kopal@altap.cz,Administration,0.07108165281446642
+nb+bz@ravenbrook.com,Administration,0.30512048192771085
+ian@hixie.ch,Administration,0.3233781278962002
+kiko@async.com.br,Administration,0.05403525263074918
+jpyeron@pdinc.us,Administration,0.3421686746987952
+burnus@gmx.de,Administration,0.18104130808950084
+mozpreed@sigkill.com,Administration,0.1960843373493976
+matty_is_a_geek@fastmail.fm,Administration,0.29312248996205165
+jayvdb@gmail.com,Administration,0.10707831325301204
+jacob@steenhagen.us,Administration,0.08588210021248047
+ddkilzer@webkit.org,Administration,0.15507256297918948
+zach@zachlipton.com,Administration,0.2329933611203295
+myk@mykzilla.org,Attachments & Requests,0.2043036431440046
+dylan@hardison.net,Attachments & Requests,0.022394899167930162
+LpSolit@gmail.com,Attachments & Requests,0.18752504260729289
+mokhi64@gmail.com,Attachments & Requests,0.30271084337349397
+altlist@gmail.com,Attachments & Requests,0.10403340635268345
+dkl@mozilla.com,Attachments & Requests,0.014467944761674362
+glob@mozilla.com,Attachments & Requests,0.034271662140538936
+damien.nozay@gmail.com,Attachments & Requests,0.308433734939759
+mail@simon.green,Attachments & Requests,0.31145947887659203
+tschoening@am-soft.de,Attachments & Requests,0.3108433734939759
+reed@reedloden.com,Attachments & Requests,0.09583366698492125
+selsky@columbia.edu,Attachments & Requests,0.40990627015556497
+gerv@mozilla.org,Attachments & Requests,0.09403802573830333
+mkanat@bugzilla.org,Attachments & Requests,0.08678547726383547
+timeless@bemail.org,Attachments & Requests,0.05493413087228118
+guy.pyrzak@gmail.com,Attachments & Requests,0.4832726654574378
+wurblzap@gmail.com,Attachments & Requests,0.1135237541073385
+joshi.sunil@outlook.com,Attachments & Requests,0.6301905000586786
+uokrent@gmail.com,Attachments & Requests,0.31385542168674696
+nbezzala@yahoo.com,Attachments & Requests,0.172710843373494
+shimono@bug-ja.org,Attachments & Requests,0.29909638554216866
+ishitva.goel@yahoo.co.in,Attachments & Requests,1.1329238157915449
+bugzilla-mozilla@vitters.nl,Attachments & Requests,0.12278186754438372
+laoseth@gmail.com,Attachments & Requests,0.42138578367021456
+wicked@sci.fi,Attachments & Requests,0.1551132892446947
+goobix@gmail.com,Attachments & Requests,0.10534638831430036
+bugzilla@chimpychompy.org,Attachments & Requests,0.12692741136714378
+parkcra@gmail.com,Attachments & Requests,1.6405804938555284
+bugreport@peshkin.net,Attachments & Requests,0.08880624538972308
+timello@bugzilla.org,Attachments & Requests,0.10753021233052557
+ispiked@gmail.com,Attachments & Requests,0.3075301204819277
+gregaryh@gmail.com,Attachments & Requests,0.15903840927620258
+Tomas.Kopal@altap.cz,Attachments & Requests,0.12052707798859422
+kiko@async.com.br,Attachments & Requests,0.11767159547280027
+justdave@bugzilla.org,Attachments & Requests,0.07387377576043873
+koosha.khajeh@gmail.com,Attachments & Requests,0.39496353691861497
+bbaetz@gmail.com,Attachments & Requests,0.05222129898905969
+robzilla2@siklos.ca,Attachments & Requests,0.15220614610316033
+jeff.hedlund@matrixsi.com,Attachments & Requests,0.20090361445783134
+mozilla+bmo@cso.me.uk,Attachments & Requests,0.07150285652569
+jacob@steenhagen.us,Attachments & Requests,0.11588209982788295
+annevk@annevk.nl,Attachments & Requests,0.23980225601635788
+ddkilzer@webkit.org,Attachments & Requests,0.15507256297918948
+jayvdb@gmail.com,Attachments & Requests,0.10707831325301204
+LpSolit@gmail.com,Bug Import/Export & Moving,0.12456073353285191
+gerv@mozilla.org,Bug Import/Export & Moving,0.07163295330080653
+quanah@zimbra.com,Bug Import/Export & Moving,0.3566265158566483
+aliustek@gmail.com,Bug Import/Export & Moving,0.15908636050935207
+wurblzap@gmail.com,Bug Import/Export & Moving,0.08071125410733845
+eevee.mozilla@veekun.com,Bug Import/Export & Moving,0.30271084337349397
+mkanat@bugzilla.org,Bug Import/Export & Moving,0.07416610350608953
+mozpreed@sigkill.com,Bug Import/Export & Moving,0.2019030834987206
+justdave@bugzilla.org,Bug Import/Export & Moving,0.07173091861758027
+gregaryh@gmail.com,Bug Import/Export & Moving,0.30196216767474093
+zach@zachlipton.com,Bug Import/Export & Moving,0.23082329317269074
+myk@mykzilla.org,Bug Import/Export & Moving,0.05287507171543317
+bbaetz@gmail.com,Bug Import/Export & Moving,0.04187647140285279
+kiko@async.com.br,Bug Import/Export & Moving,0.044944322745527565
+bugzilla-mozilla@vitters.nl,Bug Import/Export & Moving,0.10960974332111051
+mozilla+bmo@cso.me.uk,Bug Import/Export & Moving,0.10469377510040159
+koosha.khajeh@gmail.com,Bug Import/Export & Moving,0.3330611141774366
+erik@purins.com,Bug Import/Export & Moving,0.32018072289156624
+dkl@mozilla.com,API,0.04034516767280196
+smujahid@mozilla.com,API,0.34939759036144574
+glob@mozilla.com,API,0.03373105429146325
+kohei.yoshino@gmail.com,API,0.19686960557909086
+dylan@hardison.net,API,0.03156520484478606
+madueme.israel@gmail.com,API,0.15566089761470858
+sebastinssanty@gmail.com,API,0.047392366669475106
