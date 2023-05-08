@@ -1,2 +1,10 @@
 Persist multiple Database in neo4j community edition
 https://stackoverflow.com/questions/60429947/error-occurs-when-creating-a-new-database-under-neo4j-4-0
+
+
+y1 = [0.69,0.73, 0.4,0.49] # accuracy for 5 developers
+y2 = [0.73,0.80, 0.62,0.52] # accuracy for 10 developers
+y3 = [0.83,0.87, 0.53, 0.57]
+
+Accuracy = (number of correct guesses) / n
+'%Y-%m-%d %H:%M:%S'.
