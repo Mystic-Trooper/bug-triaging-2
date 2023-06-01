@@ -53,6 +53,7 @@ Case 4: when a=0.3,b=0.3,c=0.4
 
 ## Visualizing Graph of Accuracy
 ![image39](https://github.com/Mystic-Trooper/bug-triaging-2/assets/71957235/f2cd2b1e-f8b1-458c-ad55-328b383f9b64)
+
 The link between a project's correctness and the number of devs working on it is seen in the graph. The correctness of the project is shown by the y-axis, while various cases or situations are represented by the x-axis.
 
 The graph has three lines, each of which represents the project's accuracy for a different number of devs. The accuracy for five devs is shown by the blue line, for ten devs by the orange line, and for fifteen devs by the green line.
